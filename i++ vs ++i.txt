@@ -1,0 +1,88 @@
+	/********************************POST-INCREMENT EXAMPLES*************************************/
+
+	//POST-INCREMENT is i++, we can remember this as 'post' because the ++ is to the right of the variable.
+	//As the name implies, POST-INCRMENT means we DO THE INCREMENTING LAST
+
+	int a = 1;
+	a++; //There are no other operators in this expression so we just increment (i.e. a = a + 1;)
+
+	//Scenario A
+	int j = 8;
+	int k = j++; // now there is an assignment operator
+
+	//Break-down of Scenario A
+	int j = 8; 
+	int k = j; // ASSIGN value of j to k 
+	j = j + 1; // then INCREMENT j, result: k = 8, j = 9
+
+	// Since j++ is Post-Increment, first we ASSIGN then value of j to k, and then INCREMENT j, like scenario A above. 
+	//Assignment occurs first, so any post increments will not be accounted for in the assignment.
+
+	//Scenario B
+	int j = 8, k = 5;
+	j *= k++; // includes compound assignment operator *=
+
+	//Break-down of Scenario B
+	int j = 8, k = 5;
+	j = j * k; // first we evaluate the compound assignment operator j *= k
+	k = k + 1; // then INCREMENT k, result j = 40, k = 6
+	
+	//Here k++ is Post-Increment, first we evaluate the expression using the *= operator and then INCREMENT k. 
+
+	//Scenario C
+	int j = 8;
+	std::cout << j++;
+
+	//Break-down of Scenario C
+	int j = 8;
+	std::cout << j; //output the value of j, not j = j + 1
+	j = j + 1; // then INCREMENT j, result: outputs 8, j = 9
+	
+	//Remember, j++ is Post-Increment, POST implies we do the incrementing last. Therefore, we evaluate the << operator first and then INCREMENT j. 
+
+	/********************************PRE-INCREMENT EXAMPLES*************************************/
+
+	// PRE-INCREMENT is ++i, we can remember this as 'pre' because the ++ is to the left of the variable.
+	//As the name implies, PRE-INCRMENT means we DO THE INCREMENTING FIRST
+	
+	int b = 1;
+	++b; //Again, there are no other operators in this expression so we can just increment b = b + 1;
+
+	//Scenario D
+	int x = 5;
+	int y = ++x; // contains an assignment
+
+	//Break-down of Scenario D
+	int x = 5;
+	x = x + 1; // INCREMENT x 
+	int y = x; // then ASSIGN, result: x = 6, y = 6
+
+	//Since ++x is Pre-Increment, first we INCREMENT the value of x, and then we ASSIGN x the value of x to y like scenario B above.
+	//Assignment occurs last, the two variables will always hold the same value. 
+
+
+	//Scenario E
+	int x = 5;
+	int y = 10;
+	y %= ++x; 
+
+	//Break-down of Scenario E
+	int x = 5;
+	int y = 10;
+	x = x + 1; // INCREMENT x
+	y = y % x; // then use the modulus operator to find the remainder, result: x = 6, y = 4
+
+
+	//Scenario F
+	int j = 1, x = 1;
+	if (j++ == ++x) {
+		std::cout << "Expression is true\n";
+	}
+
+	//Break-down of Scenario F
+	int j = 1, x = 1;
+	x = x + 1; //Increment x
+	(j == x); // use relational operator to compare j to x, FALSE!
+	j = j + 1; // Increment j, result: x = 2, j = 2, no output 
+	
+	//Even though the expression j++ == ++x yields false, j is stil incremented.
