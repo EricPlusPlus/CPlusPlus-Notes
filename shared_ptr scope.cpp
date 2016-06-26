@@ -1,3 +1,6 @@
+#include <iostream>
+#include <memory>
+
 int main() {
 	std::shared_ptr<int> p(new int(42)); // a shared_ptr 'p' is created that points to a new int with value 42.
 	
