@@ -17,9 +17,5 @@ int main() {
 	std::cout << "Count: " << p.use_count() << std::endl;
 	std::cout << "x = " << *p << std::endl; // x has been modified as expected.
 
-
-
-	system("pause");
-
 	return 0; //When the program ends, the reference count of p is 1, so the memory p is pointing to is freed just before p is destroyed. 
 }
